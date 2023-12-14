@@ -12,7 +12,6 @@ const count = ref(0);
   <div class="container">
     <img src="../assets/images/img1.jpg" alt="Aubergine">
     <h1>Home</h1>
-
   </div>
 </template>
 
