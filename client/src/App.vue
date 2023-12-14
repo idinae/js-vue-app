@@ -1,5 +1,6 @@
 <script>
-import Home from './components/Home.vue';
+import Home from './views/Home.vue';
+
 
 export default {
   components: {
@@ -9,5 +10,9 @@ export default {
 </script>
 
 <template>
-  <Home />
+  <main>
+    <RouterView />
+  </main>
+
+
 </template>

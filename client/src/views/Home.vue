@@ -1,0 +1,50 @@
+<script setup>
+import { ref } from 'vue';
+
+defineProps({
+  msg: String,
+});
+
+const count = ref(0);
+</script>
+
+<template>
+  <div class="container">
+    <img src="../assets/images/img1.jpg" alt="Aubergine">
+    <h1>Home</h1>
+
+  </div>
+</template>
+
+<style scoped>
+h1,
+h2,
+h3 {
+	margin: 0;
+	/* padding: 0; */
+}
+
+p,
+ol,
+ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container {
+	width: 1200;
+	margin: 0px auto;
+}
+
+.notfound {
+	text-align: center;
+	padding: 50px 0px 20px;
+}
+</style>
