@@ -1,0 +1,52 @@
+<template>
+    <div class="container">
+    <div class="footer">
+        <p>&copy; Made by idinae. Photos by <a href="http://subektiv.com/">emmmo</a>.
+        </p>
+    </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        
+    }
+</script>
+.container {
+
+}
+<style scoped>
+/** FOOTER **/
+
+.footer {
+	overflow: hidden;
+	padding: 30px 0px;
+	border-top: 1px solid #E7E7E7;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.03);
+	margin-top: 20px;
+}
+
+.footer p {
+	text-align: center;
+	color: #767676;
+}
+
+.footer a {
+	color: #5f5f5f;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+
+
+@MEDIA all and (max-width: 600px) {
+
+	.container {
+		max-width: 600px;
+		margin: 0px auto;
+	}
+	
+}
+</style>
