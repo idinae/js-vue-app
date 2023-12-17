@@ -102,6 +102,7 @@
 .menu li {
 	float: left;
 	border-left: 1px solid #E7E7E7;
+	list-style: none;
 }
 
 .menu li:first-child {
