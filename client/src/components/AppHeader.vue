@@ -37,7 +37,7 @@
     <div class="container">
         <div class="header">
         <div class="logo">
-            <h1><Link to="/" class="headerlogo"><span>Cook</span>Book</Link></h1>
+            <h1><router-link to="/" class="headerlogo"><span>Cook</span>Book</router-link></h1>
         </div>
         <div class="menu">
             <ul>
@@ -50,7 +50,8 @@
             {isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
             {isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
             <li><router-link to="/">Home</router-link></li>
-
+            <li><router-link to="/login">Login</router-link></li>
+				
 
             </ul>
         </div>
