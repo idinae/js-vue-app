@@ -1,11 +1,11 @@
-<script setup>
-import { ref } from 'vue';
+<script >
+import FilterNav from './Filter/FilterNav.vue';
 
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
+export default {
+  components: {
+	FilterNav,
+  },
+};
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const count = ref(0);
 			<img class="imglogo" src="../assets/images/img1.jpg" alt="aubergine in a plate" />
 		</div>
 		<div>
-			<!-- <MainNav typecheck={this.state.currentType} /> -->
+			<FilterNav />
 			<!-- <div className={style.reciperow}>
 				{this.state.recipes.map(x => 
 					<Recipe 

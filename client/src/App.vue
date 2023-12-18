@@ -2,13 +2,11 @@
 import Home from './views/Home.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
-import FilterNav from './views/Filter/FilterNav.vue';
 
 export default {
   components: {
     Home,
-	FilterNav,
-    AppHeader,
+	AppHeader,
     AppFooter
   },
 };
@@ -18,7 +16,6 @@ export default {
   <AppHeader />
   <main>
     <RouterView />
-	<FilterNav />
   </main>
   <AppFooter />
 </template>
@@ -56,68 +53,6 @@ header h1, h2, h3 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-}
-
-/* DROPDOWN */
-
-.dropbtn {
-	background-color:white;
-	margin: 0;
-	padding: 12px 40px;
-	border-radius: 5px;
-	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.1);
-	border: 1px solid rgb(184, 113, 46);
-	line-height: normal;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	/* text-shadow: 0px 1px 0px rgba(0, 0, 0, .2); */
-	font-size: 1em;
-	font-weight: 600;
-	color: rgb(184, 113, 46);
-  }
-  
-.dropdown {
-	position: relative;
-	display: inline-block;
-	margin: 40px 0px 30px;
-  }
-  
-.dropdowncont {
-	display: none;
-	position: absolute;
-	right: 0;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-	left: 0;
-  }
-  
-  .dropdowncont a {
-	color: rgb(184, 113, 46);
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-transform: uppercase;
-  }
-  
-  .dropdowncont a:hover {background-color: #f1f1f1;}
-  
-  .dropdown:hover .dropdowncont {
-	display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-	background-color: rgb(184, 113, 46);
-	text-decoration: none;
-	cursor: pointer;
-	color: white;
-	border: 1px solid rgb(184, 113, 46);
-  }
-
-  .dropbtn:focus, .dropbtn:visited {
-	border: 1px solid rgb(184, 113, 46) !important;
 }
 
 

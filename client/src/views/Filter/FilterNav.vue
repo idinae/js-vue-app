@@ -1,14 +1,12 @@
 <template>
-    <div class="container">
-        <div class="dropdown" >
-            <button @onClick={handleClick} class="dropbtn">Филтър</button>
-            <div class="dropdowncont">
-                <Link to="/type/starters">Предястия</Link>
-                <Link to="/type/mains">Основни</Link>
-                <Link to="/type/desserts">Десерти</Link>
-            </div>
-        </div>   
-    </div>
+    <div class="dropdown" >
+        <button @onClick={handleClick} class="dropbtn">Филтър</button>
+        <div class="dropdowncont">
+            <Link to="/type/starters">Предястия</Link>
+            <Link to="/type/mains">Основни</Link>
+            <Link to="/type/desserts">Десерти</Link>
+        </div>
+    </div>   
 </template>
 
 <script>
@@ -82,11 +80,6 @@
 
   .dropbtn:focus, .dropbtn:visited {
 	border: 1px solid rgb(184, 113, 46) !important;
-}
-
-.container {
-	max-width: 1200px;
-	margin: 0px auto;
 }
 
 
