@@ -34,30 +34,30 @@
 
 <template>
     <div>
-    <div class="container">
-        <div class="header">
-        <div class="logo">
-            <h1><router-link to="/" class="headerlogo"><span>Cook</span>Book</router-link></h1>
-        </div>
-        <div class="menu">
-            <ul>
-            <!-- {isAuthenticated ? <li class="welcome">Welcome, {username.split('@')[0]}!</li> : ''}
-            <li><Link to="/">Home</Link></li>
-            {/* <li><Link to="/blog">Blog</Link></li> */}
-            {isAuthenticated ? '' : <li><Link to="/login">Login</Link></li>}
-            {isAuthenticated ? '' : <li><Link to="/register">Register</Link></li>}
-            {isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''}
-            {isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
-            {isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/login">Login</router-link></li>
-            <li><router-link to="/register">Register</router-link></li>
-				
+		<div class="container">
+			<div class="header">
+				<div class="logo">
+					<h1><router-link to="/" class="headerlogo"><span>Cook</span>Book</router-link></h1>
+				</div>
+				<div class="menu">
+					<ul>
+					<!-- {isAuthenticated ? <li class="welcome">Welcome, {username.split('@')[0]}!</li> : ''}
+					<li><Link to="/">Home</Link></li>
+					{/* <li><Link to="/blog">Blog</Link></li> */}
+					{isAuthenticated ? '' : <li><Link to="/login">Login</Link></li>}
+					{isAuthenticated ? '' : <li><Link to="/register">Register</Link></li>}
+					{isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''}
+					{isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
+					{isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
+					<li><router-link to="/">Home</router-link></li>
+					<li><router-link to="/login">Login</router-link></li>
+					<li><router-link to="/register">Register</router-link></li>
+						
 
-            </ul>
-        </div>
-        </div>
-    </div>
+					</ul>
+				</div>
+			</div>
+		</div>
     </div>
 </template>
 

@@ -9,10 +9,26 @@ const count = ref(0);
 </script>
 
 <template>
-  <div class="container">
-    <img src="../assets/images/img1.jpg" alt="Aubergine">
-    <h1>Home</h1>
-  </div>
+	<div class="container">
+		<div> 
+			<img class="imglogo" src="../assets/images/img1.jpg" alt="aubergine in a plate" />
+		</div>
+		<div>
+			<!-- <MainNav typecheck={this.state.currentType} /> -->
+			<!-- <div className={style.reciperow}>
+				{this.state.recipes.map(x => 
+					<Recipe 
+						key={x._id} 
+						id={x._id}
+						type={x.type}
+						name={x.name} 
+						description={x.description} 
+						imageUrl={x.imageurl} 
+						likes={x.likes} 
+					/>)}
+			</div> -->
+		</div>
+	</div>
 </template>
 
 <style scoped>

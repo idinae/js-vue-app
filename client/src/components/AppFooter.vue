@@ -12,9 +12,7 @@
         
     }
 </script>
-.container {
 
-}
 <style scoped>
 /** FOOTER **/
 

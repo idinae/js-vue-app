@@ -1,63 +1,23 @@
-<script>
-import Home from './views/Home.vue';
-import AppHeader from './components/AppHeader.vue';
-import AppFooter from './components/AppFooter.vue';
-import FilterNav from './views/Filter/FilterNav.vue';
-
-export default {
-  components: {
-    Home,
-	FilterNav,
-    AppHeader,
-    AppFooter
-  },
-};
-</script>
-
-<template class="App">
-  <AppHeader />
-  <main>
-    <RouterView />
-	<FilterNav />
-  </main>
-  <AppFooter />
+<template>
+    <div class="container">
+        <div class="dropdown" >
+            <button @onClick={handleClick} class="dropbtn">Филтър</button>
+            <div class="dropdowncont">
+                <Link to="/type/starters">Предястия</Link>
+                <Link to="/type/mains">Основни</Link>
+                <Link to="/type/desserts">Десерти</Link>
+            </div>
+        </div>   
+    </div>
 </template>
 
-<style>
-html,
-body {
-	height: 100%;
-}
+<script>
+    export default {
+        
+    }
+</script>
 
-body {
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 10pt;
-	color: #727272;
-}
-
-.container {
-	max-width: 1200px;
-	margin: 0px auto;
-}
-
-header h1, h2, h3 {
-	padding: 20px 0px 20px 0px;
-	text-transform: uppercase;
-	font-family: 'Arial Narrow', Arial, sans-serif;
-}
-
-/* .banner {
-	padding: 30px 0px;
-} */
-
-.reciperow {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
+<style scoped>
 /* DROPDOWN */
 
 .dropbtn {
@@ -80,7 +40,11 @@ header h1, h2, h3 {
 .dropdown {
 	position: relative;
 	display: inline-block;
-	margin: 40px 0px 30px;
+	margin: 30px 0px 10px;
+  }
+
+  .dropdown:focus {
+	outline: none;
   }
   
 .dropdowncont {
@@ -120,27 +84,34 @@ header h1, h2, h3 {
 	border: 1px solid rgb(184, 113, 46) !important;
 }
 
-
-@MEDIA all and (max-width: 600px) {
-
-  .body {
-        max-width: 600px;
-	}
-	
-	.container {
-		max-width: 600;
-		margin: 0px auto;
-	}
-
-	.imglogo {
-		display: none;
-	}
-
+.container {
+	max-width: 1200px;
+	margin: 0px auto;
 }
 
 
+@MEDIA all and (max-width: 600px) {
 
+	.dropdown {
+		max-width: 600px;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+	}
 
+	.dropbtn {
+		min-width: 300px;
+		margin: 20px 0 0 0;
+	}
 
+	.dropdowncont {
+		margin-top: 60px;
+		text-align: center;
+		padding: 10px 0;
+	}
 
+	.dropdowncont a {
+		padding: 20px 0;
+	}
+}
 </style>
