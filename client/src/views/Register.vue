@@ -1,14 +1,14 @@
 <script>
     export default {
-        data() {
-          return {
-            user: {
-              username: '',
-              pass: '',
-              repeatPass: ''
-            }
+      data() {
+        return {
+          user: {
+            username: '',
+            password: '',
+            repeatPass: ''
           }
         }
+      }
     }
 </script>
 
@@ -19,7 +19,7 @@
             <label for="username">Имейл:</label>
             <input type="text" name={username} id="username" onChange="" v-model="user.username" />
             <label for="password">Парола:</label>
-            <input type="password" name={password} id="password" onChange="" v-model="user.pass" />
+            <input type="password" name={password} id="password" onChange="" v-model="user.password" />
             <label for="repeatPassword">Повтори паролата:</label>
             <input type="password" name={repeatPassword} id="repeatPassword" onChange="" v-model="user.repeatPass" />
             <button type="submit" value="Register" class="buttonstyle">Изпрати</button>
