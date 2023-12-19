@@ -1,21 +1,28 @@
+<script>
+    export default {
+        data() {
+        return {
+          user: {
+            username: '',
+            pass: '',
+          }
+        }
+      }
+    }
+</script>
+
 <template>
     <div class="articlewrapper">
         <h1>Влез</h1>
         <form onSubmit={}>
-            <label htmlFor="username">Имейл:</label>
-            <input type="text" name="username" id="username" />
-            <label htmlFor="password">Парола:</label>
-            <input type="password" name="password" id="password" />
+            <label for="username">Имейл:</label>
+            <input type="text" name="username" id="username" v-model="user.username" />
+            <label for="password">Парола:</label>
+            <input type="password" name="password" id="password" v-model="user.pass" />
         <button type="submit" class="buttonstyle" value="Login">Вход</button>
         </form>
     </div>
 </template>
-
-<script>
-    export default {
-        
-    }
-</script>
 
 <style scoped>
 .container {

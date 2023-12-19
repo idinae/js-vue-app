@@ -1,23 +1,31 @@
+<script>
+    export default {
+        data() {
+          return {
+            user: {
+              username: '',
+              pass: '',
+              repeatPass: ''
+            }
+          }
+        }
+    }
+</script>
+
 <template>
     <div class="articlewrapper">
     <h1>Регистрирай се</h1>
         <form onSubmit="">
-            <label htmlFor="username">Имейл:</label>
-            <input type="text" name={username} id="username" onChange="" />
-            <label htmlFor="password">Парола:</label>
-            <input type="password" name={password} id="password" onChange="" />
-            <label htmlFor="repeatPassword">Повтори паролата:</label>
-            <input type="password" name={repeatPassword} id="repeatPassword" onChange="" />
+            <label for="username">Имейл:</label>
+            <input type="text" name={username} id="username" onChange="" v-model="user.username" />
+            <label for="password">Парола:</label>
+            <input type="password" name={password} id="password" onChange="" v-model="user.pass" />
+            <label for="repeatPassword">Повтори паролата:</label>
+            <input type="password" name={repeatPassword} id="repeatPassword" onChange="" v-model="user.repeatPass" />
             <button type="submit" value="Register" class="buttonstyle">Изпрати</button>
         </form>
     </div>
 </template>
-
-<script>
-    export default {
-        
-    }
-</script>
 
 <style scoped>
 .container {
