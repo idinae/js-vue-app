@@ -4,7 +4,7 @@
         return {
           user: {
             username: '',
-            pass: '',
+            password: '',
           }
         }
       }
@@ -18,7 +18,7 @@
             <label for="username">Имейл:</label>
             <input type="text" name="username" id="username" v-model="user.username" />
             <label for="password">Парола:</label>
-            <input type="password" name="password" id="password" v-model="user.pass" />
+            <input type="password" name="password" id="password" v-model="user.password" />
         <button type="submit" class="buttonstyle" value="Login">Вход</button>
         </form>
     </div>
