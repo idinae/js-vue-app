@@ -1,30 +1,69 @@
-<script>
-    export default {
-        data() {
-        return {
-          user: {
-            username: '',
-            password: '',
-          }
-        };
-      },
-      methods: {
-        async onSubmit() {
+<script setup>
+//import firebase from '../utils/firebase';
+import { ref } from "vue";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
 
-        }
+const email = ref("");
+const password = ref("");
+const errMsg = ref(); //error message
+const router = useRouter();
+
+const login = () => {
+  const auth = getAuth(); //from firebase/auth
+  signInWithEmailAndPassword(auth, email.value, password.value)
+    .then((data) => {
+      console.log("Successfully signed in!");
+      console.log(auth.currentUser.email); //stored in local storage
+      router.push('/')
+    })
+    .catch((error) => {
+      console.log(error.code);
+      switch (error.code) {
+        case"auth/invalid-email":
+          errMsg.value="Invalid email!";
+          break;
+        case"auth/user-not-found":
+          errMsg.value="No account with that emal was found!";
+          break;
+        case"auth/wrong-password":
+          errMsg.value="Incorrect password!";
+          break;
+        default:
+        errMsg.value="Email or password was incorrect!";
+          break;
       }
-    }
+      //alert(error.message);
+    });
+};
+
+  // export default {
+  //     data() {
+  //     return {
+  //       user: {
+  //         email: '',
+  //         password: '',
+  //       }
+  //     };
+  //   },
+  //   methods: {
+  //     async onSubmit() {
+        
+  //     }
+  //   }
+  // }
 </script>
 
 <template>
     <div class="articlewrapper">
         <h1>Влез</h1>
         <form @submit.prevent="onSubmit">
-            <label for="username">Имейл:</label>
-            <input type="text" name="username" id="username" v-model="user.username" />
+            <label for="email">Имейл:</label>
+            <input type="text" name="email" id="email" v-model="email" />
             <label for="password">Парола:</label>
-            <input type="password" name="password" id="password" v-model="user.password" />
-        <button type="submit" class="buttonstyle" value="Login">Вход</button>
+            <input type="password" name="password" id="password" v-model="password" />
+        <button type="submit" class="buttonstyle" value="Login" @click="login">Вход</button>
+        <p v-if="errMsg" class="errMsg">{{ errMsg }}</p>
         </form>
     </div>
 </template>
@@ -102,7 +141,12 @@ a:hover {
   }
   
   a:active {
-      background-color: rgb(184, 113, 46);
+      background-color: rgb(206, 102, 5);
       cursor: pointer;
+  }
+
+  .errMsg {
+    color: rgb(161, 19, 4);
+    margin-bottom: 50px;
   }
 </style>

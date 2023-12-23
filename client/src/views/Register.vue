@@ -1,28 +1,52 @@
-<script>
-    export default {
-      data() {
-        return {
-          user: {
-            username: '',
-            password: '',
-            repeatPass: ''
-          }
-        }
-      }
-    }
+<script setup>
+//import firebase from '../utils/firebase';
+import { ref } from "vue";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
+
+const email = ref("");
+const password = ref("");
+const router = useRouter();
+
+const register = () => {
+  const auth = getAuth(); //from firebase/auth
+  createUserWithEmailAndPassword(auth, email.value, password.value)
+    .then((data) => {
+      console.log("Successfully registered!");
+      console.log(auth.currentUser.email); //stored in local storage
+      router.push('/')
+    })
+    .catch((error) => {
+      console.log(error.code);
+      alert(error.message);
+    });
+};
+
+
+  // export default {
+  //   data() {
+  //     return {
+  //       user: {
+  //         username: '',
+  //         password: '',
+  //         //repeatPass: ''
+  //       }
+  //     }
+  //   }
+  // }
 </script>
 
 <template>
     <div class="articlewrapper">
     <h1>Регистрирай се</h1>
         <form @submit.prevent="onSubmit">
-            <label for="username">Имейл:</label>
-            <input type="text" name={username} id="username" onChange="" v-model="user.username" />
+            <label for="email">Имейл:</label>
+            <input type="text" id="email" onChange="" v-model="email" />
             <label for="password">Парола:</label>
-            <input type="password" name={password} id="password" onChange="" v-model="user.password" />
-            <label for="repeatPassword">Повтори паролата:</label>
-            <input type="password" name={repeatPassword} id="repeatPassword" onChange="" v-model="user.repeatPass" />
-            <button type="submit" value="Register" class="buttonstyle">Изпрати</button>
+            <input type="password" id="password" onChange="" v-model="password" />
+            <!-- <label for="repeatPassword">Повтори паролата:</label>
+            <input type="password" name={repeatPassword} id="repeatPassword" onChange="" v-model="user.repeatPass" /> -->
+            <button type="submit" value="Register" class="buttonstyle" @click="register">Изпрати</button>
         </form>
     </div>
 </template>
