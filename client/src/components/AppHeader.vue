@@ -3,34 +3,34 @@
     import { RouterLink, useRouter } from 'vue-router';
     //import { useCartStore } from '../store/cartStore';
 
-    export default {
-        components: {
-            RouterLink,
-        },
-        data() {
-            return{
-                // userData: {
-                //     isAuthenticated,
-                //    username
-                // }
-            }
-        },
-        // cartProducts: {
-        //     type: Array,
-        //     required: true,
-        //     default: () => []
-        // },
-        //emtis: ['onSelect'],
-        // computed: {
-        //     ...mapState(useCartStore, ['products'])
-        // },
-        methods: {
-            // onSelect(view) {
-            //     this.$emit('onSelect', view);
-            // }
-        }
-    };
-</script>
+//     export default {
+//         components: {
+//             RouterLink,
+//         },
+//         data() {
+//             return{
+// 					// userData: {
+// 					//     isAuthenticated,
+// 					//    username
+// 					// }
+//             }
+//         },
+//         // cartProducts: {
+//         //     type: Array,
+//         //     required: true,
+//         //     default: () => []
+//         // },
+//         //emtis: ['onSelect'],
+//         // computed: {
+//         //     ...mapState(useCartStore, ['products'])
+//         // },
+//         methods: {
+//             // onSelect(view) {
+//             //     this.$emit('onSelect', view);
+//             // }
+//         }
+//     };
+// </script>
 
 <script setup>
 	import { onMounted, ref } from 'vue';
@@ -38,6 +38,7 @@
 
 	const router = useRouter();
 	const isLoggedIn = ref(false);
+	let username = '';
 	
 	let auth;
 	onMounted(() => {
@@ -45,6 +46,8 @@
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
 				isLoggedIn.value = true;
+				username = auth.currentUser.email.split('@')[0];
+				console.log(username);
 			} else {
 				isLoggedIn.value = false;
 			}
@@ -76,7 +79,7 @@
 					{isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''}
 					{isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
 					{isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
-					<li v-if="isLoggedIn" class="welcome">Welcome!</li>
+					<li v-if="isLoggedIn" class="welcome">Welcome, {{username}}!</li>
 					<li><router-link to="/">Home</router-link></li>
 					<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
 					<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>

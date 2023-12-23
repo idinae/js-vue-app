@@ -14,7 +14,7 @@ const login = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((data) => {
       console.log("Successfully signed in!");
-      console.log(auth.currentUser.email); //stored in local storage
+      //console.log(auth.currentUser.email); //stored in local storage
       router.push('/')
     })
     .catch((error) => {
@@ -39,22 +39,6 @@ const login = () => {
       //alert(error.message);
     });
 };
-
-  // export default {
-  //     data() {
-  //     return {
-  //       user: {
-  //         email: '',
-  //         password: '',
-  //       }
-  //     };
-  //   },
-  //   methods: {
-  //     async onSubmit() {
-        
-  //     }
-  //   }
-  // }
 </script>
 
 <template>
