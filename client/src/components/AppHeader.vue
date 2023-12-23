@@ -11,7 +11,7 @@
             return{
                 // userData: {
                 //     isAuthenticated,
-                //     username
+                //    username
                 // }
             }
         },
@@ -38,7 +38,7 @@
 
 	const router = useRouter();
 	const isLoggedIn = ref(false);
-
+	
 	let auth;
 	onMounted(() => {
 		auth = getAuth();
@@ -76,6 +76,7 @@
 					{isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''}
 					{isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
 					{isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
+					<li v-if="isLoggedIn" class="welcome">Welcome!</li>
 					<li><router-link to="/">Home</router-link></li>
 					<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
 					<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>
