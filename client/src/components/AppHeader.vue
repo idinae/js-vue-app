@@ -71,18 +71,12 @@
 				</div>
 				<div class="menu">
 					<ul>
-					<!-- {isAuthenticated ? <li class="welcome">Welcome, {username.split('@')[0]}!</li> : ''}
-					<li><Link to="/">Home</Link></li>
-					{/* <li><Link to="/blog">Blog</Link></li> */}
-					{isAuthenticated ? '' : <li><Link to="/login">Login</Link></li>}
-					{isAuthenticated ? '' : <li><Link to="/register">Register</Link></li>}
-					{isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''}
-					{isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
-					{isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
+					<!-- {isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''} -->
 					<li v-if="isLoggedIn" class="welcome">Welcome, {{username}}!</li>
 					<li><router-link to="/">Home</router-link></li>
 					<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
 					<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>
+					<li><router-link to="/profile" v-if="isLoggedIn">Profile</router-link></li>
 					<li><router-link to="/logout" @click="handleSignOut" v-if="isLoggedIn">Logout</router-link></li>
 						
 
