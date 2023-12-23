@@ -14,7 +14,7 @@ const register = () => {
     .then((data) => {
       console.log("Successfully registered!");
       console.log(auth.currentUser.email); //stored in local storage
-      router.push('/')
+      router.push('/');
     })
     .catch((error) => {
       console.log(error.code);

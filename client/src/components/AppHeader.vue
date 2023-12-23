@@ -1,11 +1,11 @@
 <script>
     import { mapState } from 'pinia';
-    import { RouterLink } from 'vue-router';
+    import { RouterLink, useRouter } from 'vue-router';
     //import { useCartStore } from '../store/cartStore';
 
     export default {
         components: {
-            RouterLink
+            RouterLink,
         },
         data() {
             return{
@@ -32,6 +32,33 @@
     };
 </script>
 
+<script setup>
+	import { onMounted, ref } from 'vue';
+	import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
+	const router = useRouter();
+	const isLoggedIn = ref(false);
+
+	let auth;
+	onMounted(() => {
+		auth = getAuth();
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				isLoggedIn.value = true;
+			} else {
+				isLoggedIn.value = false;
+			}
+		});
+	});
+
+	const handleSignOut = () => {
+		signOut(auth).then(() => {
+			router.push('/');
+		});
+}
+
+</script>
+
 <template>
     <div>
 		<div class="container">
@@ -50,8 +77,9 @@
 					{isAuthenticated ? <li><Link to="/profile">Profile</Link></li> : ''}
 					{isAuthenticated ? <li><Link to="/logout">Logout</Link></li> : ''} -->
 					<li><router-link to="/">Home</router-link></li>
-					<li><router-link to="/login">Login</router-link></li>
-					<li><router-link to="/register">Register</router-link></li>
+					<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
+					<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>
+					<li><router-link to="/logout" @click="handleSignOut" v-if="isLoggedIn">Logout</router-link></li>
 						
 
 					</ul>

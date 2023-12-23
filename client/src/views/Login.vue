@@ -29,6 +29,9 @@ const login = () => {
         case"auth/wrong-password":
           errMsg.value="Incorrect password!";
           break;
+        case"auth/user-disabled":
+          errMsg.value="The user was disabled!";
+          break;
         default:
         errMsg.value="Email or password was incorrect!";
           break;
