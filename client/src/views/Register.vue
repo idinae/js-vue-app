@@ -15,7 +15,7 @@
 <template>
     <div class="articlewrapper">
     <h1>Регистрирай се</h1>
-        <form onSubmit="">
+        <form @submit.prevent="onSubmit">
             <label for="username">Имейл:</label>
             <input type="text" name={username} id="username" onChange="" v-model="user.username" />
             <label for="password">Парола:</label>

@@ -6,6 +6,11 @@
             username: '',
             password: '',
           }
+        };
+      },
+      methods: {
+        async onSubmit() {
+
         }
       }
     }
@@ -14,7 +19,7 @@
 <template>
     <div class="articlewrapper">
         <h1>Влез</h1>
-        <form onSubmit={}>
+        <form @submit.prevent="onSubmit">
             <label for="username">Имейл:</label>
             <input type="text" name="username" id="username" v-model="user.username" />
             <label for="password">Парола:</label>
