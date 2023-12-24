@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const isLoggedIn = ref(false);
-let username = '';
+let email = ref('');
 let auth;
 
 onMounted(() => {
@@ -11,8 +11,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             isLoggedIn.value = true;
-            username = auth.currentUser.email.split('@')[0];
-            console.log(username);
+            email.value = auth.currentUser.email;
+            //console.log(auth.currentUser.email);
         }
     });
 });
@@ -23,7 +23,7 @@ onMounted(() => {
 <div class="articlewrapper">
     <h1>Моят профил</h1>
         <h2>Моите данни</h2>
-        <span>Регистриран имейл:&nbsp;&nbsp; {{ username }}</span>
+        <span>Регистриран имейл:&nbsp;&nbsp; {{ email }}</span>
         <h2>Моите рецепти</h2>
             <div>                      
                 <!-- {

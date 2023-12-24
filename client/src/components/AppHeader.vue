@@ -1,7 +1,5 @@
-<script>
-    import { mapState } from 'pinia';
-    import { RouterLink, useRouter } from 'vue-router';
-    //import { useCartStore } from '../store/cartStore';
+<!-- <script> -->
+//import { useCartStore } from '../store/cartStore';
 
 //     export default {
 //         components: {
@@ -30,15 +28,18 @@
 //             // }
 //         }
 //     };
-// </script>
+<!-- </script> -->
 
 <script setup>
-	import { onMounted, ref } from 'vue';
+	import { ref, onMounted } from 'vue';
 	import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
+	import { mapState } from 'pinia';
+    import { RouterLink, useRouter } from 'vue-router';
 
 	const router = useRouter();
 	const isLoggedIn = ref(false);
-	let username = '';
+	let username = ref('');
 	
 	let auth;
 	onMounted(() => {
@@ -46,8 +47,8 @@
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
 				isLoggedIn.value = true;
-				username = auth.currentUser.email.split('@')[0];
-				console.log(username);
+				username.value = auth.currentUser.email.split('@')[0];
+				console.log(username.value);
 			} else {
 				isLoggedIn.value = false;
 			}
