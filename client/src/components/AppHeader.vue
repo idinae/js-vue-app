@@ -72,15 +72,15 @@
 				</div>
 				<div class="menu">
 					<ul>
-					<!-- {isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''} -->
-					<li v-if="isLoggedIn" class="welcome">Welcome, {{username}}!</li>
-					<li><router-link to="/">Home</router-link></li>
-					<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
-					<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>
-					<li><router-link to="/profile" v-if="isLoggedIn">Profile</router-link></li>
-					<li><router-link to="/logout" @click="handleSignOut" v-if="isLoggedIn">Logout</router-link></li>
+						<!-- {isAuthenticated ? <li><Link to="/recipes/create">Create</Link></li> : ''} -->
+						<li v-if="isLoggedIn" class="welcome">Welcome, {{username}}!</li>
+						<li><router-link to="/">Home</router-link></li>
+						<li><router-link to="/login" v-if="!isLoggedIn">Login</router-link></li>
+						<li><router-link to="/register" v-if="!isLoggedIn">Register</router-link></li>
+						<li><router-link to="/create" v-if="isLoggedIn">Create</router-link></li>
+						<li><router-link to="/profile" v-if="isLoggedIn">Profile</router-link></li>
+						<li><router-link to="/logout" @click="handleSignOut" v-if="isLoggedIn">Logout</router-link></li>
 						
-
 					</ul>
 				</div>
 			</div>
