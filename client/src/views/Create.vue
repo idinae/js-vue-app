@@ -1,22 +1,54 @@
+<script>
+    export default {
+        data() {
+            return {
+                formData: {
+                    type: '',
+                    name: '',
+                    products: '',
+                    description: '',
+                    imageUrl: ''
+                }
+            }
+        },
+        methods: {
+            onFormChange(field, event) {
+                this.formData[field] = event.target.value;
+                console.log(this.formData[field]);
+                console.log(event.target.name);
+            }
+        },
+        // watch: {
+        //     formData(newVal, prevVal) {
+        //         console.log('watcher', newVal, prevVal);
+        //     },
+        //     //deep: true
+        //     'formData.name': function (newVal) {
+        //       console.log('formData', newVal);
+        //     }
+        // }
+    }
+</script>
+
 <template>
     <div class="articlewrapper">
         <h1>Създай нова рецепта</h1>
-        <form onSubmit={onCreateRecipeSubmitHandler}>
+        <form>
             <label htmlFor="type">Категория:</label>
-            <select id="type">
+            <select id="type" :value="formData.type" @input="onFormChange('type', $event)">
                 <option value="starters">Предястия</option>
                 <option value="mains">Основни ястия</option>
                 <option value="desserts">Десерти</option>
             </select>
             <label htmlFor="name">Име:</label>
-            <input type="text" name="name" id="name" onChange={onChangeNameHandler} />
+            <input type="text" name="name" id="name" :value="formData.name" @input="onFormChange('name', $event)" />
             <!-- <div className={`${style.validation} ${state.length<3 && style.show}`}>Name length should be minimum 3 characters.</div> -->
             <label htmlFor="products">Продукти:</label>
-            <textarea type="text" rows="5" cols="50" name="products" id="products"></textarea>
+            <textarea type="text" rows="5" cols="50" name="products" id="products" :value="formData.products" @input="onFormChange('products', $event)"></textarea>
             <label htmlFor="description">Приготовление:</label>
-            <textarea type="text" rows="10" cols="50" name="description" id="description"></textarea>
+            <textarea type="text" rows="10" cols="50" name="description" id="description" :value="formData.description" @input="onFormChange('description', $event)"></textarea>
             <label htmlFor="imageUrl">Снимка:</label>
-            <input type="text" name="imageUrl" id="imageUrl" />
+            <input type="text" name="imageUrl" id="imageUrl" :value="formData.imageUrl" @input="onFormChange('imageUrl', $event)" />
             <button type="submit" class="buttonstyle" value="Create">Създай</button>
         </form>
     </div>
@@ -24,11 +56,6 @@
 
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
 
 <style scoped>
 .container {
