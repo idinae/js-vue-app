@@ -1,19 +1,25 @@
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const handleClick = () => {
+	console.log('drop down');
+}
+
+</script>
+
 <template>
     <div class="dropdown" >
-        <button @onClick={handleClick} class="dropbtn">Филтър</button>
+        <button @click="handleClick" class="dropbtn">Филтър</button>
         <div class="dropdowncont">
-            <Link to="/type/starters">Предястия</Link>
-            <Link to="/type/mains">Основни</Link>
-            <Link to="/type/desserts">Десерти</Link>
+            <router-link to="/type/starters">Предястия</router-link>
+            <router-link to="/type/mains">Основни</router-link>
+            <router-link to="/type/desserts">Десерти</router-link>
         </div>
     </div>   
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
 
 <style scoped>
 /* DROPDOWN */

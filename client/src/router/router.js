@@ -7,6 +7,9 @@ import Profile from "../views/Profile.vue";
 
 const routes = [
     {path: "/", component: Home},
+    {path: "/type/starters", component: Home},
+    {path: "/type/mains", component: Home},
+    {path: "/type/desserts", component: Home},
     {path: "/register", component: Register},
     {path: "/login", component: Login},
     {path: "/logout", component: Home},
