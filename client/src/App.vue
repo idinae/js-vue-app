@@ -1,11 +1,11 @@
 <script>
-import Home from './views/Home.vue';
+//import Home from './views/Home.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 
 export default {
   components: {
-    Home,
+    //Home,
 	AppHeader,
     AppFooter
   },
