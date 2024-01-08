@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const handleClick = () => {
-	console.log('drop down');
+	console.log('filter clicked');
 }
 
 </script>
